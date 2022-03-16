@@ -8,6 +8,7 @@ Android and iOS
 ### Installation
 
 > Note: This package requires **@react-native-masked-view/masked-view** and **react-native-linear-gradient**
+> UPDATE: fork to use @react-native-community/masked-view to resolve conflict with masked-view version on react-navigation v5
 
 ###### Step #1
 
@@ -59,9 +60,9 @@ There are two ways to use this package:
 with **SkeletonPlacehoder.Item** 🆕
 
 ```javascript
-import React from "react";
-import { View } from "react-native";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import React from 'react';
+import { View } from 'react-native';
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 const App = () => {
   return (
@@ -86,14 +87,14 @@ const App = () => {
 or with **View**
 
 ```javascript
-import React from "react";
-import { View } from "react-native";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import React from 'react';
+import { View } from 'react-native';
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 const App = () => {
   return (
     <SkeletonPlaceholder>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ width: 60, height: 60, borderRadius: 50 }} />
         <View style={{ marginLeft: 20 }}>
           <View style={{ width: 120, height: 20, borderRadius: 4 }} />
@@ -111,12 +112,12 @@ const App = () => {
 
 #### SkeletonPlaceholder
 
-|      Prop       |                             Description                              |     Type      |  Default  |
-| :-------------: | :------------------------------------------------------------------: | :-----------: | :-------: |
-| backgroundColor |                 Determines the color of placeholder                  |    string     | _#E1E9EE_ |
-| highlightColor  |            Determines the highlight color of placeholder             |    string     | _#F2F8FC_ |
-|      speed      | Determines the animation speed in milliseconds. 0 disables animation |    number     |   _800_   |
-|    direction    |                  Determines the animation direction                  | "right" \| "left" |   "right"   |
+|      Prop       |                             Description                              |       Type        |  Default  |
+| :-------------: | :------------------------------------------------------------------: | :---------------: | :-------: |
+| backgroundColor |                 Determines the color of placeholder                  |      string       | _#E1E9EE_ |
+| highlightColor  |            Determines the highlight color of placeholder             |      string       | _#F2F8FC_ |
+|      speed      | Determines the animation speed in milliseconds. 0 disables animation |      number       |   _800_   |
+|    direction    |                  Determines the animation direction                  | "right" \| "left" |  "right"  |
 
 #### SkeletonPlaceholder.Item
 

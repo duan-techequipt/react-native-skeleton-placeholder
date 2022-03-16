@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Animated,
   View,
@@ -7,11 +7,11 @@ import {
   ViewStyle,
   Dimensions,
   LayoutRectangle,
-} from "react-native";
-import MaskedView from "@react-native-masked-view/masked-view";
-import LinearGradient from "react-native-linear-gradient";
+} from 'react-native';
+import MaskedView from '@react-native-community/masked-view';
+import LinearGradient from 'react-native-linear-gradient';
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 interface SkeletonPlaceholderProps {
   /**
@@ -37,15 +37,15 @@ interface SkeletonPlaceholderProps {
    * Determines the animation direction, left or right
    * @default right
    */
-  direction?: "left" | "right";
+  direction?: 'left' | 'right';
 }
 
 export default function SkeletonPlaceholder({
   children,
-  backgroundColor = "#E1E9EE",
+  backgroundColor = '#E1E9EE',
   speed = 800,
-  highlightColor = "#F2F8FC",
-  direction = "right",
+  highlightColor = '#F2F8FC',
+  direction = 'right',
 }: SkeletonPlaceholderProps): JSX.Element {
   const [layout, setLayout] = React.useState<LayoutRectangle>();
   const animatedValue = React.useMemo(() => new Animated.Value(0), []);
@@ -54,7 +54,7 @@ export default function SkeletonPlaceholder({
       animatedValue.interpolate({
         inputRange: [0, 1],
         outputRange:
-          direction === "right"
+          direction === 'right'
             ? [-SCREEN_WIDTH, SCREEN_WIDTH]
             : [SCREEN_WIDTH, -SCREEN_WIDTH],
       }),
@@ -84,7 +84,7 @@ export default function SkeletonPlaceholder({
     [translateX]
   );
   const viewStyle = React.useMemo<ViewStyle>(
-    () => ({ backgroundColor, overflow: "hidden" }),
+    () => ({ backgroundColor, overflow: 'hidden' }),
     [backgroundColor]
   );
 
@@ -94,7 +94,7 @@ export default function SkeletonPlaceholder({
         element,
         (child: JSX.Element, index: number) => {
           let style: ViewStyle;
-          if (child.type.displayName === "SkeletonPlaceholderItem") {
+          if (child.type.displayName === 'SkeletonPlaceholderItem') {
             const { children, ...styles } = child.props;
             style = styles;
           } else {
@@ -125,7 +125,7 @@ export default function SkeletonPlaceholder({
       maskElement={
         <View
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: 'transparent',
           }}
         >
           {getChildren(children)}
@@ -137,7 +137,7 @@ export default function SkeletonPlaceholder({
         <Animated.View
           style={[
             {
-              flexDirection: "row",
+              flexDirection: 'row',
             },
             absoluteTranslateStyle,
           ]}
@@ -149,7 +149,7 @@ export default function SkeletonPlaceholder({
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={[StyleSheet.absoluteFill]}
-                colors={["transparent", "black", "transparent"]}
+                colors={['transparent', 'black', 'transparent']}
               />
             }
           >
@@ -186,11 +186,11 @@ SkeletonPlaceholder.Item = ({
 );
 
 //@ts-ignore
-SkeletonPlaceholder.Item.displayName = "SkeletonPlaceholderItem";
+SkeletonPlaceholder.Item.displayName = 'SkeletonPlaceholderItem';
 
 const styles = StyleSheet.create({
   childContainer: {
-    position: "relative",
+    position: 'relative',
   },
   gradient: {
     flex: 1,
